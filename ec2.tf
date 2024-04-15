@@ -56,3 +56,20 @@ resource "aws_instance" "ec2_private_subnet" {
     Name = var.ec2_private_name_tag
   }
 }
+
+resource "aws_instance" "ec2_private_subnet2" {
+  ami           = var.ec2_ami
+  instance_type = var.ec2_instance_type
+
+  subnet_id = aws_subnet.private_subnet_2.id
+  vpc_security_group_ids = ["${aws_security_group.allow_ssh.id}"]
+  key_name = var.key_pair
+
+  //user_data_replace_on_change = true
+  //user_data_base64 = filebase64("aws-cli_script.sh")  
+  
+
+  tags = {
+    Name = var.ec2_private2_name_tag
+  }
+}

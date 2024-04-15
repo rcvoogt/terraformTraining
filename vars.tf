@@ -73,3 +73,6 @@ variable "ec2_default_user" {
   default = "ec2-user"
 }
 
+variable "ec2_private2_name_tag" {
+  default = "trainingTerraform_ec2_private_subnet2"
+}
